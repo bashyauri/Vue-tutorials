@@ -1,0 +1,19 @@
+{
+  "jobs": [
+    {
+      "title": "Ninja UX Designer",
+      "id": 1,
+      "details": "Create User Experience"
+    },
+    {
+      "title": "Artificial Intelligent Expert",
+      "id": 2,
+      "details": "Develope AI based Softwares"
+    },
+    {
+      "title": "Web Developer",
+      "id": 3,
+      "details": "Develope Web based Softwares"
+    }
+  ]
+}

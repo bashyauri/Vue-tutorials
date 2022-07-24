@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="jobs.length">
         <h1>Jobs</h1>
         <div v-for="job in jobs" :key="job.id" class="job">
             <router-link :to="{
@@ -10,6 +10,10 @@
             </router-link>
         </div>
     </div>
+    <div v-else>
+        <p>Loading Jobs....</p>
+
+    </div>
 
 </template>
 
@@ -17,19 +21,22 @@
 export default {
     data() {
         return {
-            jobs: [{
-                title: 'Ninja UX Designer', id: 1, details: 'Create User Experience'
-            },
-            {
-                title: 'Artificial Intelligent Expert', id: 2, details: 'Develope AI based Softwares'
-            },
-            {
-                title: 'Web Developer', id: 3, details: 'Develope Web based Softwares'
-            },
-            ]
+            jobs: []
         }
-    }
+    },
 
+    async mounted() {
+        const response = await fetch('http://localhost:3000/jobs');
+        // waits until the request completes...
+        if (!response.ok) {
+            const message = `An error has occured: ${response.status}`;
+            throw new Error(message);
+        }
+        this.jobs = await response.json();
+
+
+
+    }
 }
 </script>
 <style>
