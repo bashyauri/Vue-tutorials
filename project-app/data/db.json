@@ -1,0 +1,16 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Learn Vue js",
+      "details": "lorem Ipsum",
+      "complete": false
+    },
+    {
+      "id": 2,
+      "title": "Make marketing campaign",
+      "details": "lorem Ipsum",
+      "complete": true
+    }
+  ]
+}
