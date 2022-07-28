@@ -2,15 +2,21 @@
   "projects": [
     {
       "id": 1,
-      "title": "Learn Vue js",
+      "title": "Learn Vue ",
       "details": "lorem Ipsum",
-      "complete": false
+      "complete": true
     },
     {
       "id": 2,
       "title": "Make marketing campaign",
-      "details": "lorem Ipsum",
-      "complete": true
+      "details": "Make Lorem",
+      "complete": false
+    },
+    {
+      "title": "Read the Quran ",
+      "details": "This is rewarding",
+      "complete": true,
+      "id": 3
     }
   ]
 }
