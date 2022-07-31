@@ -8,9 +8,11 @@
   <router-view />
 </template>
 <script>
+import { ref } from 'vue'
+
 export default {
   setup() {
-    console.log('setup');
+    const p = ref(null)
     let name = 'mario'
     let age = 30
     const handleClick = () => {
