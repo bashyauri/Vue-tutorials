@@ -1,11 +1,12 @@
 <template>
   <div class="home">
+    <h1>Home</h1>
     <div v-if="error">{{ error }}</div>
     <div v-if="posts.length">
       <post-list :posts="posts" />
     </div>
     <div v-else>
-      Loading...
+      <Spinner />
 
     </div>
 
@@ -14,28 +15,17 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+
+import getPosts from '../composables/getPosts'
 import PostList from '../components/PostList.vue'
+import Spinner from '../components/Spinner.vue'
+
 
 export default {
-  components: { PostList },
+  components: { PostList, Spinner },
   name: 'Home',
   setup() {
-
-    const posts = ref([]);
-    const error = ref(null);
-    const load = async () => {
-      try {
-        let response = await fetch('http://localhost:3000/posts')
-        if (!response.ok) {
-          throw Error("Not successful")
-        }
-        posts.value = await response.json();
-      } catch (err) {
-        error.value = err.message
-        console.console.log(error.value);
-      }
-    }
+    const { posts, error, load } = getPosts()
     load();
 
     return {

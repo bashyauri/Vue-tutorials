@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Home</h1>
+
     <!-- <input type="text" v-model="search">
     <p>Search term - {{ search }}</p>
 
