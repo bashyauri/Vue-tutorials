@@ -6,6 +6,8 @@
         <div v-if="post" class="post">
             <h3>{{ post.title }}</h3>
             <p class="pre">{{ post.body }}</p>
+            <div v-for="tag in post.tags" :key="tag">#{{ tag }}</div>
+
 
         </div>
         <div v-else>
