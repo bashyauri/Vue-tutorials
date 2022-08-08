@@ -16,6 +16,7 @@
 
 <script>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 export default {
     setup() {
@@ -23,6 +24,7 @@ export default {
         const body = ref('')
         const tag = ref('')
         const tags = ref([])
+        const router = useRouter()
         const handleSubmit = async () => {
             const post = {
                 title: title.value,
@@ -39,7 +41,7 @@ export default {
                 const message = `An error has occured: ${response.status}`;
                 throw new Error(message);
             }
-            this.$router.push('/')
+            router.push({ name: 'Home' })
         }
         const handleKeyDown = () => {
             if (!tags.value.includes(tag.value)) {

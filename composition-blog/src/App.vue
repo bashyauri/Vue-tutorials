@@ -1,24 +1,17 @@
 <template>
-  <div>
-
-    <!-- <input type="text" v-model="search">
-    <p>Search term - {{ search }}</p>
-
-    <div v-for="name in matchingNames" :key="name">
-      {{ name }}
-
-    </div>
-    <button @click="handleClick">Stop watching</button> -->
-
-  </div>
+  <Navbar />
 
   <router-view />
 </template>
 <script>
 // import { computed, ref, watch, watchEffect } from 'vue'
+import Navbar from '@/components/Navbar.vue'
 
 export default {
   name: 'Home',
+  components: {
+    Navbar
+  }
   // setup() {
   //   const search = ref('')
   //   const names = ref(['bashar', 'fatima', 'lukman', 'indo', 'sadiq'])
