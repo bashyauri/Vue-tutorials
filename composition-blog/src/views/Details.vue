@@ -7,6 +7,7 @@
             <h3>{{ post.title }}</h3>
             <p class="pre">{{ post.body }}</p>
             <div v-for="tag in post.tags" :key="tag">#{{ tag }}</div>
+            <button class="btn-delete" @click="handleDelete">Delete</button>
 
 
         </div>
@@ -23,16 +24,26 @@
 <script>
 import getPost from '../composables/getPost'
 import Spinner from '../components/Spinner.vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
+import { projectFirestore } from '../firebase/config'
 
 export default {
     props: ['id'],
     components: { Spinner },
     setup(props) {
         const route = useRoute()
+        const router = useRouter()
         const { post, error, load } = getPost(route.params.id)
         load()
-        return { post, error }
+        const handleDelete = async () => {
+            await projectFirestore.collection('posts')
+                .doc(route.params.id)
+                .delete()
+            router.push({
+                name: "Home"
+            })
+        }
+        return { post, error, handleDelete }
 
     }
 }
@@ -53,5 +64,9 @@ export default {
 
 .pre {
     white-space: pre-wrap;
+}
+
+.btn-delete {
+    margin: 10px auto;
 }
 </style>
