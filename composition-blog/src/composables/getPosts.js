@@ -10,7 +10,10 @@ const getPosts = () => {
       //   throw Error("Not successful");
       // }
       // posts.value = await response.json();
-      const res = await projectFirestore.collection("posts").get();
+      const res = await projectFirestore
+        .collection("posts")
+        .orderBy("createdAt", "desc")
+        .get();
       posts.value = res.docs.map((doc) => {
         //console.log(doc.data());
         return { ...doc.data(), id: doc.id };

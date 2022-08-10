@@ -17,7 +17,7 @@
 <script>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { projectFirestore } from '../firebase/config'
+import { projectFirestore, timeStamp } from '../firebase/config'
 
 export default {
     setup() {
@@ -31,6 +31,7 @@ export default {
                 title: title.value,
                 body: body.value,
                 tags: tags.value,
+                createdAt: timeStamp()
             }
 
             // const response = await fetch('http://localhost:3000/posts', {
