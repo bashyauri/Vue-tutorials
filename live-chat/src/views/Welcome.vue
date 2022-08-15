@@ -1,13 +1,14 @@
 <template>
     <div class="welcome container">
         <p>Welcome to live chat</p>
+        <SignUpForm />
     </div>
 </template>
 
 <script>
 import SignupForm from "./components/SignupForm"
 export default {
-
+    components: { SignupForm }
 }
 </script>
 
